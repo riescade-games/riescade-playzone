@@ -1,96 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Exo+2:wght@300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* RIESCADE Arcade Design System - Gaming Dark Theme */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* RIESCADE Brand Colors - Dark Gaming Theme */
+    --background: 240 8% 6%;           /* Deep gaming dark */
+    --foreground: 0 0% 98%;            /* Pure white text */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 240 8% 8%;                 /* Dark card background */
+    --card-foreground: 0 0% 98%;       /* White text on cards */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 240 8% 10%;             /* Slightly lighter for popovers */
+    --popover-foreground: 0 0% 98%;    /* White text */
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* RIESCADE Pink/Magenta Accent */
+    --primary: 322 85% 60%;            /* RIESCADE signature pink */
+    --primary-foreground: 0 0% 98%;    /* White text on pink */
+    --primary-glow: 322 85% 70%;       /* Lighter pink for glows */
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 240 8% 12%;           /* Dark secondary */
+    --secondary-foreground: 0 0% 85%;  /* Light gray text */
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 240 6% 10%;               /* Muted background */
+    --muted-foreground: 240 5% 65%;    /* Muted text */
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 280 100% 60%;            /* Purple accent for variety */
+    --accent-foreground: 0 0% 98%;     /* White on purple */
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;          /* Red for destructive actions */
+    --destructive-foreground: 0 0% 98%; /* White on red */
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 240 6% 16%;              /* Dark borders */
+    --input: 240 6% 12%;               /* Input backgrounds */
+    --ring: 322 85% 60%;               /* Focus ring in RIESCADE pink */
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;                 /* Rounded gaming style */
 
-    --sidebar-background: 0 0% 98%;
+    /* Gaming specific colors */
+    --neon-cyan: 180 100% 50%;         /* Neon cyan for highlights */
+    --neon-green: 120 100% 50%;        /* Success/online status */
+    --neon-orange: 30 100% 60%;        /* Warning/hot content */
+    --gaming-gray: 240 5% 20%;         /* Gaming UI elements */
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(322 85% 60%), hsl(280 100% 60%));
+    --gradient-gaming: linear-gradient(135deg, hsl(240 8% 6%), hsl(240 8% 12%));
+    --gradient-neon: linear-gradient(90deg, hsl(180 100% 50%), hsl(322 85% 60%), hsl(280 100% 60%));
+    
+    /* Shadows & Glows */
+    --shadow-glow: 0 0 20px hsl(322 85% 60% / 0.3);
+    --shadow-neon: 0 0 30px hsl(180 100% 50% / 0.4);
+    --shadow-gaming: 0 10px 30px hsl(240 8% 0% / 0.5);
 
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Typography weights for gaming */
+    --font-gaming: 'Orbitron', monospace;      /* Futuristic gaming font */
+    --font-body: 'Exo 2', sans-serif;         /* Clean body text */
+    
+    /* Animations */
+    --transition-gaming: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --bounce-duration: 0.6s;
   }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+  /* Force dark mode always for gaming theme */
+  * {
+    @apply border-border;
+  }
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+  html {
+    @apply dark;
+  }
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    background-image: 
+      radial-gradient(circle at 20% 80%, hsl(322 85% 60% / 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsl(280 100% 60% / 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, hsl(180 100% 50% / 0.03) 0%, transparent 50%);
+  }
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+  /* Gaming typography styles */
+  .font-gaming {
+    font-family: var(--font-gaming);
+    font-weight: 600;
+  }
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+  .text-neon {
+    text-shadow: 0 0 10px currentColor;
+  }
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+  .glow-primary {
+    box-shadow: var(--shadow-glow);
+  }
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+  .glow-neon {
+    box-shadow: var(--shadow-neon);
+  }
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+  /* Gaming animations */
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px hsl(322 85% 60% / 0.3); }
+    50% { box-shadow: 0 0 40px hsl(322 85% 60% / 0.6); }
+  }
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+  @keyframes neon-flicker {
+    0%, 100% { opacity: 1; text-shadow: 0 0 10px currentColor; }
+    50% { opacity: 0.8; text-shadow: 0 0 20px currentColor; }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-neon-flicker {
+    animation: neon-flicker 1.5s ease-in-out infinite;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Scrollbar styling for gaming theme */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary-glow;
   }
 }
 
