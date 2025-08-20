@@ -71,10 +71,6 @@
     @apply border-border;
   }
 
-  html {
-    @apply dark;
-  }
-
   body {
     @apply bg-background text-foreground font-body antialiased;
     background-image: 
@@ -144,15 +140,5 @@
 
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-primary-glow;
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-
-  body {
-    @apply bg-background text-foreground;
   }
 }
